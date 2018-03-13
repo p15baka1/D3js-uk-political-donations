@@ -1,6 +1,6 @@
 // GLOBALS
 var w = 1000,h = 900;
-var fusrodah = new Audio("fusrodah.mp3"); 
+var fusrodah = new Audio("whistle.mp3"); 
 var padding = 2;
 var nodes = [];
 var force, node, data, maxVal;
