@@ -285,20 +285,34 @@ function moveToFunds(alpha) {
 
 function moveToDonations(alpha) {
 	return function(d) {
-		var centreY;
-		var centreX;
-		if (d.value >= 5000) {
+			var centreX;
+			var centreY;
+		if (d.value >= 10000000) {
 			centreY = 300;
-			centreX = 350;
-		} 
-		else if (d.value <=20000) {
-			centreX = entityCentres[d.entity].x + 60;
-			centreY = 380;
+			centreX = 200;
+				
+		} else if (d.value < 10000000 && d.value>= 1000000) {
+				centreY = 450;
+				centreX = 700;
+				
+		} else if (d.value < 1000000 && d.value >= 500000) {
+				centreY = 600;
+				centreX = 200;
+				
+		} else  if (d.value < 500000 && d.value >= 100000) {
+				centreY = 700;
+				centreX = 750;
+				
+		} else  if (d.value <= maxVal) {
+				centreY = 800;
+				centreX = 200;
 		}
-		d.x += (centreX - d.x) * (brake + 0.02) * alpha * 1.1;
-		d.y += (centreY - d.y) * (brake + 0.02) * alpha * 1.1;
+
+		d.x += (centreX - d.x) * (brake + 0.06) * alpha * 1.2;
+		d.y += (centreY - 100 - d.y) * (brake + 0.06) * alpha * 1.2;
 	};
 }
+
 
 // Collision detection function by m bostock
 function collide(alpha) {
